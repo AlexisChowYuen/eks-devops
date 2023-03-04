@@ -1,6 +1,8 @@
 data "terraform_remote_state" "eks" {
-    backend = "local"
+    backend = "s3"
     config = {
-        path = "../ekscluster-terraform-manifests/terraform.tfstate"
+        bucket = "terraform-on-aws-eks-acy"
+        key    = "dev/eks-cluster/terraform.tfstate"
+        region = "us-east-1"
     }
 }
